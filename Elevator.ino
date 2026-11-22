@@ -127,82 +127,6 @@ void loop() {  // Main loop: continuously reads inputs and controls the elevator
 
       break;
 
-    case 3:  // Elevator is on the third floor
-
-      digitalWrite(output6,HIGH);
-
-      if(second==HIGH)
-      {
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,HIGH);
-        digitalWrite(output6,HIGH);
-        delay(800);
-        digitalWrite(output6,LOW);
-        digitalWrite(output5,HIGH);
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,LOW);
-        flr=2;
-      }
-
-      if(first==HIGH)
-      {
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,HIGH);
-        digitalWrite(output6,HIGH);
-        delay(800);
-        digitalWrite(output6,LOW);
-        digitalWrite(output5,HIGH);
-        delay(800);
-        digitalWrite(output5,LOW);
-        digitalWrite(output4,HIGH);
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,LOW);
-        flr=1;
-      }
-
-      if(ground==HIGH)
-      {
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,HIGH);
-        digitalWrite(output6,HIGH);
-        delay(800);
-        digitalWrite(output6,LOW);
-        digitalWrite(output5,HIGH);
-        delay(800);
-        digitalWrite(output5,LOW);
-        digitalWrite(output4,HIGH);
-        delay(800);
-        digitalWrite(output4,LOW);
-        digitalWrite(output3,HIGH);
-        digitalWrite(output1,LOW);
-        digitalWrite(output2,LOW);
-        flr=0;
-      }
-
-      if(weight==HIGH)
-      {
-        while(digitalRead(input5)==HIGH)
-        {
-          digitalWrite(output7,HIGH);
-          delay(500);
-        }
-
-        digitalWrite(output7,LOW);
-      }
-
-      if(way==HIGH)
-      {
-        while(digitalRead(input6)==LOW)
-        {
-          digitalWrite(output8,HIGH);
-          delay(500);
-        }
-
-        digitalWrite(output8,LOW);
-      }
-
-      break;
-
     case 1:  // Elevator is on the first floor
 
       digitalWrite(output4,HIGH);
@@ -317,6 +241,82 @@ void loop() {  // Main loop: continuously reads inputs and controls the elevator
         digitalWrite(output1,LOW);
         digitalWrite(output2,LOW);
         flr=3;
+      }
+
+      if(weight==HIGH)
+      {
+        while(digitalRead(input5)==HIGH)
+        {
+          digitalWrite(output7,HIGH);
+          delay(500);
+        }
+
+        digitalWrite(output7,LOW);
+      }
+
+      if(way==HIGH)
+      {
+        while(digitalRead(input6)==LOW)
+        {
+          digitalWrite(output8,HIGH);
+          delay(500);
+        }
+
+        digitalWrite(output8,LOW);
+      }
+
+      break;
+
+    case 3:  // Elevator is on the third floor
+
+      digitalWrite(output6,HIGH);
+
+      if(second==HIGH)
+      {
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,HIGH);
+        digitalWrite(output6,HIGH);
+        delay(800);
+        digitalWrite(output6,LOW);
+        digitalWrite(output5,HIGH);
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,LOW);
+        flr=2;
+      }
+
+      if(first==HIGH)
+      {
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,HIGH);
+        digitalWrite(output6,HIGH);
+        delay(800);
+        digitalWrite(output6,LOW);
+        digitalWrite(output5,HIGH);
+        delay(800);
+        digitalWrite(output5,LOW);
+        digitalWrite(output4,HIGH);
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,LOW);
+        flr=1;
+      }
+
+      if(ground==HIGH)
+      {
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,HIGH);
+        digitalWrite(output6,HIGH);
+        delay(800);
+        digitalWrite(output6,LOW);
+        digitalWrite(output5,HIGH);
+        delay(800);
+        digitalWrite(output5,LOW);
+        digitalWrite(output4,HIGH);
+        delay(800);
+        digitalWrite(output4,LOW);
+        digitalWrite(output3,HIGH);
+        digitalWrite(output1,LOW);
+        digitalWrite(output2,LOW);
+        flr=0;
       }
 
       if(weight==HIGH)
