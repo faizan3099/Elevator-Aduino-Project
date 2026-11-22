@@ -1,4 +1,4 @@
-int flr=0;
+  int flr=0;  // Variable declarations
   int input0=13;
   int input1=1;
   int input2=2;
@@ -19,9 +19,9 @@ int flr=0;
   int third=0;
   int weight=0;
   int way=0;
-void setup() {
+void setup() {  // Setup function: defines Arduino input and output pins
   
-pinMode(input0,INPUT);
+pinMode(input0,INPUT);  // Configure input and output pins
 pinMode(input1,INPUT);
 pinMode(input2,INPUT);
 pinMode(input3,INPUT);
@@ -37,17 +37,17 @@ pinMode(output7,OUTPUT);
 pinMode(output8,OUTPUT);
 }
 
-void loop() {
-ground=digitalRead(input0);
+void loop() {  // Main loop: continuously reads inputs and controls the elevator
+ground=digitalRead(input0);  // Read the current states of all input pins
 first=digitalRead(input1);
 second=digitalRead(input2);
 third=digitalRead(input3);
 weight=digitalRead(input5);
 way=digitalRead(input6);
-switch(flr){
-  case 0:
+switch(flr){  // Check the current elevator floor and execute the corresponding logic
+  case 0:  // Elevator is on the ground floor
   digitalWrite(output3,HIGH);
-  if(first==HIGH)
+  if(first==HIGH)  // Check if the first floor button is pressed
   {digitalWrite(output1,HIGH);
   digitalWrite(output2,LOW);
   digitalWrite(output3,HIGH);
@@ -57,7 +57,7 @@ switch(flr){
   digitalWrite(output1,LOW);
   digitalWrite(output2,LOW);
   flr=1;}
-  if(second==HIGH)
+  if(second==HIGH)  // Check if the second floor button is pressed
   {digitalWrite(output1,HIGH);
   digitalWrite(output2,LOW);
   digitalWrite(output3,HIGH);
@@ -70,7 +70,7 @@ switch(flr){
   digitalWrite(output1,LOW);
   digitalWrite(output2,LOW);
   flr=2;}
-  if(third==HIGH)
+  if(third==HIGH)  // Check if the third floor button is pressed
   {digitalWrite(output1,HIGH);
   digitalWrite(output2,LOW);
   digitalWrite(output3,HIGH);
@@ -86,22 +86,22 @@ switch(flr){
   digitalWrite(output1,LOW);
   digitalWrite(output2,LOW);
   flr=3;}
-  if(weight==HIGH)
-  {while(digitalRead(input5)==HIGH)
+  if(weight==HIGH)  // Check the weight sensor input
+  {while(digitalRead(input5)==HIGH)  // Keep the indicator active while the sensor detects weight
   {digitalWrite(output7,HIGH);
   delay(500);
     }
     digitalWrite(output7,LOW);
     }
-    if(way==HIGH)
-  {while(digitalRead(input6)==LOW)
+    if(way==HIGH)  // Check the emergency switch input
+  {while(digitalRead(input6)==LOW)  // Keep the motor stop indicator active until the switch changes state
   {digitalWrite(output8,HIGH);
   delay(500);
     }
     digitalWrite(output8,LOW);
     }
   break;
-  case 3:
+  case 3:  // Elevator is on the third floor
   digitalWrite(output6,HIGH);
   if(second==HIGH)
   {digitalWrite(output1,LOW);
@@ -157,7 +157,7 @@ switch(flr){
     digitalWrite(output8,LOW);
     }
   break;
-  case 1:
+  case 1:  // Elevator is on the first floor
   digitalWrite(output4,HIGH);
   if(ground==HIGH)
   {digitalWrite(output1,LOW);
@@ -207,7 +207,7 @@ switch(flr){
     digitalWrite(output8,LOW);
     }
   break;
-  case 2:
+  case 2:  // Elevator is on the second floor
   digitalWrite(output5,HIGH);
     if(ground==HIGH)
   {digitalWrite(output1,LOW);
